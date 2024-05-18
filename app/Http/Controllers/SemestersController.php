@@ -40,10 +40,11 @@ class SemestersController extends Controller
 
         return to_route('semesters.index')->with('success', "Semester has been updated successfully to be {$semester->semester_name}");
     }
+
     public static function create(Request $req)
     {
         $data = $req->validate([
-            'semester_name' => ['required','unique:semesters', 'string']
+            'semester_name' => ['required', 'unique:semesters', 'string']
         ]);
 
         Semester::create($data);
